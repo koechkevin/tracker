@@ -1,0 +1,36 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "globals": {
+        "shallow": true,
+        "cy": true
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js",".jsx"]
+            }
+        }
+    },
+    "rules": {
+        "no-unused-vars": 0
+    }
+}
