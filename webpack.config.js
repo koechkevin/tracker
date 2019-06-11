@@ -70,6 +70,6 @@ module.exports = {
     new DotEnvPlugin({ systemvars: true }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss'],
   },
 };
