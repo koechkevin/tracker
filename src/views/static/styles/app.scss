@@ -4,8 +4,8 @@ body {
 }
 .home {
   display: grid;
-  grid-gap: 20vw;
-  grid-template-columns: repeat(2, max-content);
+  grid-gap: 5vw;
+  grid-template-columns: repeat(3, max-content);
   height: 98vh;
   .list{
     background-color: rgb(41, 89, 165);
@@ -55,12 +55,11 @@ body {
   .form-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 90%;
-    padding: 10%;
-    position: relative;
-    top: 15%;
+    padding: 10% 15% 15% 10%;
+
     &:before {
       content: attr(id);
-      margin-left: 40%;
+      margin-left: 10%;
       font-size: larger;
       font-weight: bold;
       color: rgb(41, 97, 188);
@@ -98,4 +97,28 @@ body {
 }
 #errors {
   border: 1px solid red;
+}
+
+.user-stats {
+  padding: 5% 8%;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  min-width: 260px;
+  height: 360px;
+  overflow-y: scroll;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  &:before {
+    content: attr(name);
+    text-align: center;
+    color: rgb(41, 97, 188);
+  }
+  .stat {
+    font-size: 10px;
+    padding-top: 10%;
+    & > span {
+      &:last-child{
+      float: right;
+      }
+    }
+  }
 }

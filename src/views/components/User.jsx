@@ -9,7 +9,7 @@ class User extends React.Component {
       <div className={`user ${active ? 'active' : ''}`}>
         <div className="img" onClick={click} id={index}>
           <img onClick={click} id={index}
-            src="https://res.cloudinary.com/dbk8ky24f/image/upload/v1560329597/ygtpq5coyftfhymnypsq.png" alt="logo" />
+            src="https://res.cloudinary.com/dbk8ky24f/image/upload/v1560458218/bklisfgxahqn5tmwiaxm.jpg" alt="logo" />
         </div>
         <div className="name" onClick={click} id={index}>
           { name }

@@ -5,10 +5,11 @@ import validator from '../middlewares/index';
 
 const usersRouter = express.Router();
 const { getAllUsers } = controller;
-const { createEntries } = entries;
-const { validateNewEntry } = validator;
+const { createEntries, getAllEntries } = entries;
+const { validateNewEntry, validateUniqueDate } = validator;
 
 usersRouter.get('/users', getAllUsers);
-usersRouter.post('/entries/create', validateNewEntry, createEntries);
+usersRouter.post('/entries/create', validateNewEntry, validateUniqueDate, createEntries);
+usersRouter.get('/entries', getAllEntries);
 
 export default usersRouter;

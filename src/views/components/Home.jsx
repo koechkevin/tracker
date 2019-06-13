@@ -4,6 +4,7 @@ import toast from 'toastr';
 import actions from '../redux/actions/index';
 import User from './User';
 import Form from './Form';
+import Stats from './Stats';
 
 const initialState = {
   channel: 0,
@@ -22,10 +23,19 @@ class Home extends React.Component {
 
   state = { ...initialState, active: 0, isLoading: false };
 
+  componentWillReceiveProps(newProps, prevProps) {
+    const { getSingleUserStats } = this.props;
+    if (!prevProps.users && newProps.users.length) {
+      getSingleUserStats(newProps.users[0].id);
+    }
+  }
+
   click = (e) => {
+    const { getSingleUserStats, users } = this.props;
     this.setState({
       active: e.target.id,
     });
+    getSingleUserStats(users[e.target.id].id);
   };
 
   submit = (e) => {
@@ -50,7 +60,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { users, entries: { errors } } = this.props;
+    const { users, entries: { errors }, data } = this.props;
     const { active, isLoading } = this.state;
     const activeId = users.length ? users[active].id : active;
     const activeName = users.length ? users[active].name : '';
@@ -68,14 +78,20 @@ class Home extends React.Component {
             ))
           }
           </div>
-          <div className="body">
+          <div className="bod">
             <Form
               errors={errors}
-            activeName={activeName}
-            onChange={this.handleChange}
-            handleSubmit={this.submit}
-            values={this.state}
+              activeName={activeName}
+              onChange={this.handleChange}
+              handleSubmit={this.submit}
+              values={this.state}
           />
+          </div>
+          <div className="stats">
+            <Stats
+              data={data}
+              activeName={activeName}
+            />
           </div>
         </div>
       </div>
@@ -83,8 +99,8 @@ class Home extends React.Component {
   }
 }
 
-const { getAllUsers, createEntry } = actions;
-const mapStateToProps = ({ reducer: { users }, entries }) => ({
-  users, entries,
+const { getAllUsers, createEntry, getSingleUserStats } = actions;
+const mapStateToProps = ({ reducer: { users }, entries, statistics: { data } }) => ({
+  users, entries, data,
 });
-export default connect(mapStateToProps, { getAllUsers, createEntry })(Home);
+export default connect(mapStateToProps, { getAllUsers, createEntry, getSingleUserStats })(Home);

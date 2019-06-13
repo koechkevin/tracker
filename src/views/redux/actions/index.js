@@ -1,5 +1,9 @@
 import {
-  GET_ALL_USERS, GET_ALL_USERS_FAILURE, CREATE_ENTRY_SUCCESS, CREATE_ENTRY_FAILURE,
+  GET_ALL_USERS,
+  GET_ALL_USERS_FAILURE,
+  CREATE_ENTRY_SUCCESS,
+  CREATE_ENTRY_FAILURE,
+  GET_USER_STAT_SUCCESS, GET_USER_STAT_FAILURE,
 } from '../constants/index';
 import api from '../../api';
 
@@ -46,6 +50,19 @@ const createEntry = (data, callBack, final) => async (dispatch) => {
   }
 };
 
+const getSingleUserStats = id => async (dispatch) => {
+  try {
+    const { getUserStatistics } = api;
+    const response = await getUserStatistics(id);
+    dispatch({
+      type: GET_USER_STAT_SUCCESS, data: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_USER_STAT_FAILURE, error,
+    });
+  }
+};
 export default {
-  getAllUsersSuccess, getAllUsers, getAllUsersFailure, createEntry,
+  getAllUsersSuccess, getAllUsers, getAllUsersFailure, createEntry, getSingleUserStats,
 };
