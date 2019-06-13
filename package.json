@@ -10,7 +10,7 @@
   "scripts": {
     "transpile": "babel src --out-dir dist -s",
     "clean": "rm -rf dist && rm -rf public",
-    "build": "npm run migrate && node migrator/index.js && npm run clean && npm run transpile && webpack -p",
+    "build": "npm run migrate && npm run clean && npm run transpile && webpack -p",
     "start": "node dist/index.js",
     "start:dev": "webpack -d && webpack-dev-server --mode development --open --hot",
     "migrate": "node_modules/.bin/sequelize db:migrate",
