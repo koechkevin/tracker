@@ -1,3 +1,101 @@
 body {
-  background-color: dodgerblue;
+  font-family: Geneva;
+  box-sizing: border-box
+}
+.home {
+  display: grid;
+  grid-gap: 20vw;
+  grid-template-columns: repeat(2, max-content);
+  height: 98vh;
+  .list{
+    background-color: rgb(41, 89, 165);
+    min-width: 250px;
+    width: 30%;
+    overflow-y: scroll;
+    .active {
+      background-color: rgb(41, 97, 188) !important;
+    }
+    .user {
+      min-width: 100%;
+      min-height: 80px;
+      border-top: 1px solid dodgerblue;
+      border-bottom:1px solid dodgerblue;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      .name {
+        width: 150px;
+        font-size: 12px;
+        color: white;
+        margin: 25px 30px 25px 15px;
+      }
+      .icon {
+        color: white;
+        margin-left: 15px;
+        margin-top: 5px;
+      }
+      .img {
+        min-width: 50px;
+        align-items: flex-start !important;
+      }
+      img {
+        width: 50px;
+        border:1px solid white;
+        height: 50px;
+        border-radius: 50%;
+        margin: 10px 1px 10px 10px;
+        justify-content: flex-start;
+      }
+      &:hover {
+        background-color: rgb(41, 97, 188);
+      }
+    }
+  }
+
+  .form-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 90%;
+    padding: 10%;
+    position: relative;
+    top: 15%;
+    &:before {
+      content: attr(id);
+      margin-left: 40%;
+      font-size: larger;
+      font-weight: bold;
+      color: rgb(41, 97, 188);
+    }
+    .label {
+      font-size: 10px;
+      margin-left: 10%;
+      &:first-letter{
+        text-transform: capitalize;
+      }
+    }
+    input[type='number'], input[type='date']  {
+      width: 80%;
+      padding: 5px;
+      margin-bottom: 10px;
+      outline: none;
+      margin-left: 10%;
+    }
+    input[type='submit'] {
+      float: right;
+      margin-right: 30px;
+      background-color: rgb(41, 97, 188);
+      color: white;
+      padding: 5px;
+      width: 50px;
+      outline: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  }
+  .body {
+    width: 70%;
+    min-width: 450px;
+  }
+}
+#errors {
+  border: 1px solid red;
 }

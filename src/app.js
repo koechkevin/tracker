@@ -1,5 +1,8 @@
 import express from 'express';
 import chalk from 'chalk';
+import bodyParser from 'body-parser';
+import expressValidator from 'express-validator';
+import cors from 'cors';
 import path from 'path';
 import routes from './routes';
 
@@ -10,6 +13,9 @@ global.bug = (message, arg1 = '', arg2 = '', arg3 = '', arg4 = '', arg5 = '') =>
 
 const expressApp = express();
 
+expressApp.use(cors());
+expressApp.use(bodyParser.json());
+expressApp.use(expressValidator());
 // This registers your routes
 const app = routes(expressApp);
 

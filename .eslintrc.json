@@ -31,6 +31,16 @@
         }
     },
     "rules": {
-        "no-unused-vars": 0
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "react/jsx-indent": [
+            "error",
+            2
+        ],
+        "react/prop-types": 1,
+        "no-unused-vars": 0,
+        "class-methods-use-this": "off"
     }
 }

@@ -1,0 +1,44 @@
+#trip-loader {
+  position:fixed;
+  width:100%;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index:9999;
+}
+
+#trip-loader::after {
+  position:absolute;
+  border-style:solid;
+  border-color:rgb(41, 97, 188);
+  border-top-color:transparent;
+  border-width: 2px;
+  border-radius:100%;
+  left:48%;
+  top:40%;
+  width:40px;
+  height:40px;
+  content: '';
+  -webkit-animation: spin .8s linear infinite;
+  animation: spin .9s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {-webkit-transform:rotate(0deg);}
+  100% {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes spin {
+  0% {transform:rotate(0deg);}
+  100% {transform:rotate(360deg);}
+}
+
+.trip-loading {
+  display: block;
+}
+
+.trip-not-loading {
+  display: none;
+}
