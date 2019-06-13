@@ -6,3 +6,4 @@ coverage/
 package-lock.json
 public
 yarn-error.log
+migrator/*.json
