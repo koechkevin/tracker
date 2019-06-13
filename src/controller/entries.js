@@ -3,7 +3,7 @@ import models from '../database/models/index';
 const createEntries = async (req, res) => {
   try {
     const data = {
-      ...req.body, createdAt: new Date(), updatedAt: new Date(), date: new Date(),
+      ...req.body, createdAt: new Date(), updatedAt: new Date(), date: new Date(req.body.date),
     };
     const entry = await models.Entry.create(data);
     res
