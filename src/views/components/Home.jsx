@@ -23,13 +23,6 @@ class Home extends React.Component {
 
   state = { ...initialState, active: 0, isLoading: false };
 
-  componentWillReceiveProps(newProps, prevProps) {
-    const { getSingleUserStats } = this.props;
-    if (!prevProps.users && newProps.users.length) {
-      getSingleUserStats(newProps.users[0].id);
-    }
-  }
-
   click = (e) => {
     const { getSingleUserStats, users } = this.props;
     this.setState({
