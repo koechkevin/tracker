@@ -4,11 +4,12 @@ body {
 }
 .home {
   display: grid;
-  grid-gap: 5vw;
+  grid-gap: 30px;
   grid-template-columns: repeat(3, max-content);
   height: 98vh;
   .list{
     background-color: rgb(41, 89, 165);
+    height: 95vh;
     min-width: 250px;
     width: 30%;
     overflow-y: scroll;
@@ -101,8 +102,7 @@ body {
 
 .user-stats {
   padding: 5% 8%;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 105px;
   min-width: 260px;
   height: 400px;
   overflow-y: scroll;
@@ -126,10 +126,10 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 280px);
   grid-template-rows: repeat(2, max-content);
-  grid-gap: 70px;
+  grid-gap: 20px;
   .daily-stats {
-    min-width: 680px;
-    height: 400px;
+    min-width: 650px;
+    height: 270px;
     overflow-y: scroll;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 10%;
