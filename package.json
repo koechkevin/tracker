@@ -37,6 +37,7 @@
     "chalk-console": "^1.1.0",
     "convert-excel-to-json": "^1.6.1",
     "cors": "^2.8.5",
+    "coveralls": "^3.0.4",
     "css-loader": "^3.0.0",
     "dotenv": "^8.0.0",
     "dotenv-webpack": "^1.7.0",

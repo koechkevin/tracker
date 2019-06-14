@@ -14,3 +14,7 @@ install:
 
 script:
   - yarn test
+
+after_success:
+  - COVERALLS_REPO_TOKEN=$coveralls
+  - cat ./coverage/lcov.info | node node_modules/.bin/coveralls

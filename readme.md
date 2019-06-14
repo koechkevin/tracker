@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/koechkevin/tracker.svg?branch=master)](https://travis-ci.org/koechkevin/tracker)
+[![Build Status](https://travis-ci.org/koechkevin/tracker.svg?branch=master)](https://travis-ci.org/koechkevin/tracker) [![Coverage Status](https://coveralls.io/repos/github/koechkevin/tracker/badge.svg?branch=master)](https://coveralls.io/github/koechkevin/tracker?branch=master)
