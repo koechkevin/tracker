@@ -27,29 +27,6 @@ const createEntryFailure = error => ({
   error,
 });
 
-const getAllUsers = () => async (dispatch) => {
-  try {
-    const { getAllUsers: usersApi } = api;
-    const response = await usersApi();
-    dispatch(getAllUsersSuccess(response.data));
-  } catch (error) {
-    dispatch(getAllUsersFailure(error));
-  }
-};
-
-const createEntry = (data, callBack, final) => async (dispatch) => {
-  try {
-    const { createEntry: createEntryApi } = api;
-    const response = await createEntryApi(data);
-    dispatch(createEntrySuccess(response));
-    callBack();
-  } catch (error) {
-    dispatch(createEntryFailure(error));
-  } finally {
-    final();
-  }
-};
-
 const getSingleUserStats = id => async (dispatch) => {
   try {
     const { getUserStatistics } = api;
@@ -61,6 +38,30 @@ const getSingleUserStats = id => async (dispatch) => {
     dispatch({
       type: GET_USER_STAT_FAILURE, error,
     });
+  }
+};
+
+const getAllUsers = () => async (dispatch) => {
+  try {
+    const { getAllUsers: usersApi } = api;
+    const response = await usersApi();
+    dispatch(getAllUsersSuccess(response.data));
+    dispatch(getSingleUserStats(response.data.users[1].id));
+  } catch (error) {
+    dispatch(getAllUsersFailure(error));
+  }
+};
+const createEntry = (data, callBack, final) => async (dispatch) => {
+  try {
+    const { createEntry: createEntryApi } = api;
+    const response = await createEntryApi(data);
+    dispatch(createEntrySuccess(response));
+    callBack();
+    dispatch(getSingleUserStats(response.data.userId));
+  } catch (error) {
+    dispatch(createEntryFailure(error));
+  } finally {
+    final();
   }
 };
 export default {

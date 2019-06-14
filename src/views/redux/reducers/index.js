@@ -24,11 +24,10 @@ export const reducer = (state = initialState, action) => {
 export const createEntry = (state = {
   errors: [],
 }, action) => {
-  switch (action.type) {
-    case CREATE_ENTRY_FAILURE:
-      return { ...state, errors: action.error.response.data.errors };
-    default:
-      return state;
+  if (action.type === CREATE_ENTRY_FAILURE) {
+    return { ...state, errors: action.error.response.data.errors };
+  } else {
+    return state;
   }
 };
 

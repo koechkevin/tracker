@@ -55,12 +55,11 @@ class Home extends React.Component {
 
   render() {
     const {
-      users, entries: { errors }, data, userEntries,
+      users, entries: { errors }, data,
     } = this.props;
     const { active, isLoading } = this.state;
     const activeId = users.length ? users[active].id : active;
     const activeName = users.length ? users[active].name : '';
-    console.log(data);
     return (
       <div>
         <div className={`trip-${isLoading ? 'loading' : 'not-loading'}`}>
@@ -71,7 +70,11 @@ class Home extends React.Component {
             {
             users.map((each, i) => (
               <User click={this.click}
-                    key={each.id} index={i} active={activeId === each.id} name={each.name} />
+                    key={each.id}
+                    index={i}
+                    active={activeId === each.id}
+                    name={each.name}
+              />
             ))
           }
           </div>
@@ -100,8 +103,8 @@ class Home extends React.Component {
 const { getAllUsers, createEntry, getSingleUserStats } = actions;
 const mapStateToProps = ({
   reducer: { users }, entries,
-  statistics: { data},
+  statistics: { data },
 }) => ({
-  users, entries, data
+  users, entries, data,
 });
 export default connect(mapStateToProps, { getAllUsers, createEntry, getSingleUserStats })(Home);
