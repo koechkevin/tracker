@@ -5,6 +5,7 @@ import actions from '../redux/actions/index';
 import User from './User';
 import Form from './Form';
 import Stats from './Stats';
+import DailyStats from './DailyStats';
 
 const initialState = {
   channel: 0,
@@ -53,10 +54,13 @@ class Home extends React.Component {
   };
 
   render() {
-    const { users, entries: { errors }, data } = this.props;
+    const {
+      users, entries: { errors }, data, userEntries,
+    } = this.props;
     const { active, isLoading } = this.state;
     const activeId = users.length ? users[active].id : active;
     const activeName = users.length ? users[active].name : '';
+    console.log(data);
     return (
       <div>
         <div className={`trip-${isLoading ? 'loading' : 'not-loading'}`}>
@@ -79,12 +83,13 @@ class Home extends React.Component {
               handleSubmit={this.submit}
               values={this.state}
           />
-          </div>
-          <div className="stats">
-            <Stats
-              data={data}
-              activeName={activeName}
-            />
+            <div className="stats">
+              <Stats
+                data={data}
+                activeName={activeName}
+              />
+            </div>
+            <DailyStats userEntries={data.entries} activeName={activeName}/>
           </div>
         </div>
       </div>
@@ -93,7 +98,10 @@ class Home extends React.Component {
 }
 
 const { getAllUsers, createEntry, getSingleUserStats } = actions;
-const mapStateToProps = ({ reducer: { users }, entries, statistics: { data } }) => ({
-  users, entries, data,
+const mapStateToProps = ({
+  reducer: { users }, entries,
+  statistics: { data},
+}) => ({
+  users, entries, data
 });
 export default connect(mapStateToProps, { getAllUsers, createEntry, getSingleUserStats })(Home);

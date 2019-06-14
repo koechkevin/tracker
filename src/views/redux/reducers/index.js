@@ -34,6 +34,7 @@ export const createEntry = (state = {
 
 export const getStatistics = (state = {
   data: {
+    entries: [],
     totals: {
       channel: 0, response: 0, dm: 0, multiDm: 0, Sync: 0,
     },

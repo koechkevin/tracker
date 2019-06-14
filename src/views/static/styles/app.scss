@@ -55,7 +55,7 @@ body {
   .form-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 90%;
-    padding: 10% 15% 15% 10%;
+    padding: 10% 15% 5% 10%;
 
     &:before {
       content: attr(id);
@@ -104,7 +104,7 @@ body {
   margin-left: 5vw;
   margin-right: 5vw;
   min-width: 260px;
-  height: 360px;
+  height: 400px;
   overflow-y: scroll;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   &:before {
@@ -119,6 +119,42 @@ body {
       &:last-child{
       float: right;
       }
+    }
+  }
+}
+.bod {
+  display: grid;
+  grid-template-columns: repeat(2, 280px);
+  grid-template-rows: repeat(2, max-content);
+  grid-gap: 70px;
+  .daily-stats {
+    min-width: 680px;
+    height: 400px;
+    overflow-y: scroll;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10%;
+    .day {
+      font-size: 14px;
+      margin-top: 40px;
+      margin-bottom: -20px;
+      color: dodgerblue;
+      &:first-letter {
+        text-transform: capitalize;
+      }
+    }
+    .stat {
+      font-size: 10px;
+      padding-top: 5%;
+      margin-left: 3%;
+      & > span {
+        &:last-child{
+          float: right;
+        }
+      }
+    }
+    &:before {
+      content: attr(name);
+      color: rgb(41, 97, 188);
     }
   }
 }
